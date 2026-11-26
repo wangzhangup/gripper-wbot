@@ -21,9 +21,10 @@ GROUPS = {
 
 def build():
     layout = json.loads((CAD / "layout.json").read_text(encoding="utf-8"))
-    doc = App.newDocument("B601CustomGripper")
+    doc = App.newDocument("GripperWbot")
+    doc.Label = "gripper-wbot"
     root = doc.addObject("App::Part", "Gripper")
-    root.Label = "B601-DM custom gripper"
+    root.Label = "gripper-wbot"
     shapes = {}
     for group, rows in layout.items():
         assembly = doc.addObject("App::Part", group)
