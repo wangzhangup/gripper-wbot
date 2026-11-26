@@ -2,7 +2,9 @@
 
 基于 Seeed Studio reBot B601-DM 的独立夹爪总装。一个 DM4310 电机通过小齿轮带动两根齿条，两侧滑块各安装一个定制指座和一块摩擦垫。模型包含腕端连接器、线束卡扣和安装螺钉。
 
-![夹爪 CAD 总装，橙色为摩擦垫，蓝灰色为指座](docs/assembly.png)
+![B601-DM 夹爪产品渲染，配有黑色指座、橘色摩擦垫和银色铝合金结构件](render/gripper-studio.png)
+
+[夹指与摩擦垫特写](render/gripper-detail.png) · [Blender 摄影棚场景](render/gripper-studio.blend) · [CAD 装配示意](docs/assembly.png)
 
 [FreeCAD 总装](cad/gripper.FCStd) · [通用 STEP 总装](cad/gripper.step) · [单套物料表与采购链接](docs/BOM.md) · [装配与试装记录](docs/fit.md)
 
