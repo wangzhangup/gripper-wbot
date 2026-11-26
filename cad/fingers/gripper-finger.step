@@ -11,7 +11,7 @@ cturing Information (PMI)---4.0---2014-10-13'),
 /* implementation_level */ '2;1');
 
 FILE_NAME(
-/* name */ 'gripper-base.step',
+/* name */ 'gripper-finger.step',
 /* time_stamp */ '2026-11-26T17:51:06+08:00',
 /* author */ (''),
 /* organization */ (''),
@@ -2294,15 +2294,15 @@ SOLID_ANGLE_UNIT()
 #2089=PRODUCT_DEFINITION_SHAPE('',$,#2092);
 #2090=SHAPE_REPRESENTATION('',(#1083),#2082);
 #2091=PRODUCT_DEFINITION_CONTEXT('part definition',#2096,'design');
-#2092=PRODUCT_DEFINITION('2026-09-20-17-52-07-472','gripper-base',#2093,
+#2092=PRODUCT_DEFINITION('2026-09-20-17-52-07-472','gripper-finger',#2093,
 #2091);
 #2093=PRODUCT_DEFINITION_FORMATION('',$,#2098);
-#2094=PRODUCT_RELATED_PRODUCT_CATEGORY('gripper-base','gripper-base',(#2098));
+#2094=PRODUCT_RELATED_PRODUCT_CATEGORY('gripper-finger','gripper-finger',(#2098));
 #2095=APPLICATION_PROTOCOL_DEFINITION('international standard',
 'ap242_managed_model_based_3d_engineering',2011,#2096);
 #2096=APPLICATION_CONTEXT('Managed model based 3d engineering');
 #2097=PRODUCT_CONTEXT('part definition',#2096,'mechanical');
-#2098=PRODUCT('2026-09-20-17-52-07-472','gripper-base',$,(#2097));
+#2098=PRODUCT('2026-09-20-17-52-07-472','gripper-finger',$,(#2097));
 #2099=PRESENTATION_STYLE_ASSIGNMENT((#2101));
 #2100=PRESENTATION_STYLE_ASSIGNMENT((#2102));
 #2101=SURFACE_STYLE_USAGE(.BOTH.,#2103);

@@ -1,40 +1,91 @@
 # gripper-wbot
 
-**gripper-wbot** 是基于 Seeed Studio reBot B601-DM 改装的双指平行夹爪。一台达妙 DM4310 电机通过小齿轮驱动两根齿条，让两侧夹指同步开合。每侧夹指由定制指座和摩擦垫组成。
+**English** | [简体中文](README.zh-CN.md)
 
-![gripper-wbot 整机，黑色指座、橘色摩擦垫与银色铝合金结构件](render/gripper-studio.png)
+**gripper-wbot** is a parallel-jaw gripper adapted from the Seeed Studio reBot B601-DM. A Damiao DM4310 motor drives a pinion between two racks so the jaws open and close together. Each jaw carries a custom rigid finger and a separate friction pad.
 
-[Blender 渲染场景](render/gripper-studio.blend) · [FreeCAD 总装](cad/gripper.FCStd) · [STEP 总装](cad/gripper.step) · [物料表与采购链接](docs/BOM.md) · [试装记录](docs/fit.md)
+![Assembled gripper-wbot with black fingers, orange friction pads and aluminium hardware](render/gripper-studio.png)
 
-## 夹指细节
+[Blender scene](render/gripper-studio.blend) · [FreeCAD assembly](cad/gripper.FCStd) · [STEP assembly](cad/gripper.step) · [Bill of materials](#bill-of-materials) · [Fit notes (中文)](docs/fit.md)
 
-橘色摩擦垫的凸点朝向夹持面。渲染中，指座采用哑光黑色外观，5052 铝合金连接件采用银色细磨砂外观。
+## Finger detail
 
-![gripper-wbot 夹指特写，展示摩擦垫的凸点和指座安装位置](render/gripper-detail.png)
+The raised dots on the orange pads face the object being gripped. The render shows matte black fingers and satin-finished 5052 aluminium connectors.
 
-## 打开与修改
+![Close-up of the textured pads and the finger mounts](render/gripper-detail.png)
 
-用 FreeCAD 打开 `cad/gripper.FCStd`，可在模型树中单独选取腕端、固定支架和左右滑台。其他 CAD 软件可导入 `cad/gripper.step`。总装以毫米为单位，X 轴沿导轨，Z 轴由安装面指向指尖。当前为静态装配姿态，两块摩擦垫的最小净距为 **37.38 mm**。
+## Printing the fingers and pads
 
-两个夹指源文件在 [cad/fingers](cad/fingers) 中，左右两侧复用同一份设计。其余单件在 [cad/parts](cad/parts) 中，包括一份简化的 M3×14 圆柱头螺钉模型。电机线束的规格和数量列在物料表中。[CAD 装配示意](docs/assembly.png)
+- **Rigid finger — black PLA or PLA-CF.** Start with one PLA finger to check the four mounting holes and hex-key access to the two screws nearest the pad. Choose PLA-CF if you want a stiffer finger. For carbon-filled filament, use a wear-resistant nozzle suited to the filament manufacturer's specification. [PLA-CF material data sheet](https://store.bblcdn.eu/s8/default/aefa8303ad8d40248b0d86dfdad46518/Bambu_PLA-CF_Technical_Data_Sheet_V3.pdf)
+- **Friction pad — orange TPU-85A.** The 85A designation is the Shore A hardness. Print the pad separately. Follow the filament maker’s drying instructions and use a soft-TPU profile compatible with your printer. Keep supports off the raised contact dots where possible, then install the pad with the dots facing inward. [TPU 85A material data sheet](https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_TPU_85A_Technical_Data_Sheet_a7233668-497b-487f-af8a-3adb49fafaa1.pdf?v=1741314674)
 
-## 从零件重建
+Print one finger and one pad first. Check that the pad seats fully and stays in place before printing the second pair. These are prototype material recommendations. Grip force and service life still need physical testing. [Finger STEP](cad/fingers/gripper-finger.step) · [Pad STEP](cad/fingers/gripper-friction-pad.step) · [Fit notes (中文)](docs/fit.md)
 
-[装配位置表](cad/layout.json) 记录每个实例的零件路径、毫米平移量和按 `x, y, z, w` 排列的旋转四元数。左右滑台的分组同时包含对应齿条、滑块、指座、垫片及随动紧固件。
+## Bill of materials
 
-用包含 FreeCAD、Part 和 Import 模块的 Python 运行以下命令，即可从本地单件重新生成两种总装文件。运行前请保存总装中的手工修改，脚本会覆盖这两个文件。已使用 FreeCAD 1.1.3 验证。
+Quantities cover one complete gripper, including both jaws, the motor and the wrist interface. The assembly contains 71 modeled part instances. One additional cable is listed for purchase. Each modeled part links to its own STEP file.
+
+### Fingers and structural parts
+
+| Part / STEP | Qty | Specification | Sourcing |
+|---|---:|---|---|
+| [Rigid finger](cad/fingers/gripper-finger.step) | 2 | FDM print in black PLA or PLA-CF. | — |
+| [Friction pad](cad/fingers/gripper-friction-pad.step) | 2 | FDM print separately in orange TPU-85A (Shore A 85). | — |
+| [Carriage extension](cad/parts/02_Slider_Extension.step) | 2 | CNC-machined 5052 aluminium | — |
+| [Rack](cad/parts/02_Rack.step) | 2 | CNC-machined 5052 aluminium | — |
+| [Pinion shaft adapter](cad/parts/02_Gear_Connector.step) | 1 | CNC-machined 5052 aluminium | — |
+| [Metal rail bracket](cad/parts/02_Slider_Bracket.step) | 1 | CNC-machined 5052 aluminium | — |
+| [Printed rail support](cad/parts/01_Rail_Bracket.step) | 1 | PLA, 15% infill per upstream BOM | — |
+| [Wrist connector A](cad/parts/02_Gripper_Connector_A.step) | 1 | CNC-machined 5052 aluminium | — |
+| [Wrist connector B](cad/parts/02_Gripper_Connector_B.step) | 1 | CNC-machined 5052 aluminium | — |
+| [Motor cable restraint A](cad/parts/01_Joint6_7_Cable%20Restraint_A.step) | 1 | ABS, 30% infill per upstream BOM | — |
+| [Motor cable restraint B](cad/parts/01_Joint6_7_Cable%20Restraint_B.step) | 1 | ABS, 30% infill per upstream BOM | — |
+
+### Drive and transmission
+
+| Part / STEP | Qty | Specification | Sourcing |
+|---|---:|---|---|
+| [Gripper motor](cad/parts/DM-J4310.step) | 1 | Damiao DM4310 V4 | [Supplier](https://item.taobao.com/item.htm?id=815333472865&skuId=5965481553139) |
+| [Linear rail](cad/parts/RAIL-170.step) | 1 | MGN9, 170 mm long | [Supplier](https://item.taobao.com/item.htm?id=709992228016) |
+| [Carriage block](cad/parts/SLIDER.step) | 2 | MGN9, approximately 28.9 mm long in the CAD model | [Supplier](https://item.taobao.com/item.htm?id=709992228016) |
+| [Pinion with hub](cad/parts/GEAR-1M16C.step) | 1 | Module 1, 16 teeth, 8 mm bore | [Supplier](https://item.taobao.com/item.htm?id=520920342046&skuId=4293928238550) |
+| Power and CAN cable | 1 | XT30 2+2, female to female, 200 mm. Purchase separately for a parts build. | [Supplier](https://item.taobao.com/item.htm?id=45608377884) |
+
+### Fasteners
+
+| Part / STEP | Qty | Specification | Sourcing |
+|---|---:|---|---|
+| [Finger mounting screw](cad/parts/M3x14_socket.step) | 8 | M3×14 socket head, Ø5.5 mm head, 3 mm head height. Prototype selection. | — |
+| [Countersunk screw](cad/parts/KM3-7.step) | 12 | KM3×7 | [Supplier](https://item.taobao.com/item.htm?id=613190015864&skuId=4724446993652) |
+| [Self-tapping screw](cad/parts/KA3-12.step) | 8 | KA3×12 | [Supplier](https://item.taobao.com/item.htm?id=37344431027&skuId=4878935333385) |
+| [Socket head screw](cad/parts/HM3-6.step) | 8 | HM3×6 | [Supplier](https://detail.tmall.com/item.htm?id=635755541429&skuId=5969643827976) |
+| [Socket head screw](cad/parts/HM3-12.step) | 7 | HM3×12 | [Supplier](https://detail.tmall.com/item.htm?id=635755541429&skuId=4551620356171) |
+| [Rail mounting screw](cad/parts/HM3-26.step) | 6 | HM3×26 in the assembly and kit. The upstream individual listing is for 25 mm. | [Kit list](https://www.seeedstudio.com/reBot-Arm-B601-DM-Gripper-Kit-p-6751.html) |
+| [Set screw](cad/parts/S-M4-5-JIMI.step) | 2 | M4×5 | — |
+
+## Opening and editing the assembly
+
+Open `cad/gripper.FCStd` in FreeCAD to select the wrist, fixed frame or either carriage. For another CAD system, import `cad/gripper.step`. Dimensions are in millimetres. X follows the rail and Z runs from the mounting face toward the fingertips. The minimum pad-to-pad gap in the supplied pose is **37.38 mm**.
+
+Both jaws use the same two [finger and pad files](cad/fingers). The [other part models](cad/parts) include a simplified M3×14 mounting screw. [Assembly view](docs/assembly.png)
+
+## Rebuilding from individual parts
+
+[The layout file](cad/layout.json) stores each part path, translation in millimetres and rotation quaternion in `x, y, z, w` order. Each carriage group contains its rack, slide block, rigid finger, pad and moving fasteners.
+
+From the repository root, run the following command with a Python interpreter that can import FreeCAD, Part and Import. Save any manual assembly edits first as the script overwrites both assembly files. The build has been checked with FreeCAD 1.1.3.
 
 ```sh
 python tools/build_assembly.py
 ```
 
-也可从 FreeCAD 的 Python 控制台运行，将下方路径替换为项目实际位置。
+Alternatively, run this in the FreeCAD Python console with the path to your checkout.
 
 ```python
 import runpy
 runpy.run_path("/path/to/gripper-wbot/tools/build_assembly.py", run_name="__main__")
 ```
 
-## 设计来源
+## Design credits
 
-腕端与传动机构取自 Seeed Studio 的开源硬件。2026-11-26 从整臂模型中分离夹爪和腕端接口，替换双指、更新夹指安装螺钉，并增加一个张开姿态。[上游固定版本](https://github.com/Seeed-Projects/reBot-DevArm/tree/f6451b726d75b5f8264a3ff31dea11e1fba3dd7e/hardware/reBot_B601_DM) · [来源与许可说明](NOTICE.md)
+The drive and wrist interface come from Seeed Studio’s open hardware. On 2026-11-26, the gripper and wrist interface were extracted from the arm assembly, fitted with replacement fingers and mounting screws, and placed in an open pose. [Upstream design revision](https://github.com/Seeed-Projects/reBot-DevArm/tree/f6451b726d75b5f8264a3ff31dea11e1fba3dd7e/hardware/reBot_B601_DM) · [Attribution and modification notice (中文)](NOTICE.md)

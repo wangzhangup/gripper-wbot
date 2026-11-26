@@ -6,8 +6,8 @@
 
 | 部件 | 数量 | 规格与备注 | 模型 | 采购参考 |
 |---|---:|---|---|---|
-| 新指座 | 2 | 用户提供的设计。材料与制造工艺待定。 | [gripper-base](../cad/fingers/gripper-base.step) | — |
-| 新摩擦垫 | 2 | 用户提供的设计。配合公差与材料硬度待试装。 | [gripper-friction-pad](../cad/fingers/gripper-friction-pad.step) | — |
+| 刚性夹指 | 2 | FDM 打印，推荐黑色 PLA 或 PLA-CF。先用一件检查安装孔位和扳手空间。 | [gripper-finger](../cad/fingers/gripper-finger.step) | — |
+| 摩擦垫 | 2 | FDM 单独打印，推荐橘色 TPU-85A（邵氏 A 硬度 85）。先试装一件，检查贴合与固定效果。 | [gripper-friction-pad](../cad/fingers/gripper-friction-pad.step) | — |
 | 滑块连接件 | 2 | 5052 铝合金，CNC | [02_Slider_Extension](../cad/parts/02_Slider_Extension.step) | — |
 | 齿条 | 2 | 5052 铝合金，CNC | [02_Rack](../cad/parts/02_Rack.step) | — |
 | 小齿轮连接轴 | 1 | 5052 铝合金，CNC | [02_Gear_Connector](../cad/parts/02_Gear_Connector.step) | — |
@@ -32,7 +32,7 @@
 
 | 部件 | 数量 | 规格与备注 | 模型 | 采购参考 |
 |---|---:|---|---|---|
-| 新指座安装螺钉 | 8 | M3×14 圆柱头内六角，头径 5.5 mm，高 3 mm。样机候选，见试装说明。 | [M3x14_socket](../cad/parts/M3x14_socket.step) | — |
+| 夹指安装螺钉 | 8 | M3×14 圆柱头内六角，头径 5.5 mm，高 3 mm。样机候选，见试装说明。 | [M3x14_socket](../cad/parts/M3x14_socket.step) | — |
 | 沉头螺钉 | 12 | KM3×7 | [KM3-7](../cad/parts/KM3-7.step) | [商品页](https://item.taobao.com/item.htm?id=613190015864&skuId=4724446993652) |
 | 自攻螺钉 | 8 | KA3×12 | [KA3-12](../cad/parts/KA3-12.step) | [商品页](https://item.taobao.com/item.htm?id=37344431027&skuId=4878935333385) |
 | 内六角螺钉 | 8 | HM3×6 | [HM3-6](../cad/parts/HM3-6.step) | [商品页](https://detail.tmall.com/item.htm?id=635755541429&skuId=5969643827976) |
