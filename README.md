@@ -76,14 +76,14 @@ Both jaws use the same two [finger and pad files](cad/fingers). The [other part 
 From the repository root, run the following command with a Python interpreter that can import FreeCAD, Part and Import. Save any manual assembly edits first as the script overwrites both assembly files. The build has been checked with FreeCAD 1.1.3.
 
 ```sh
-python tools/build_assembly.py
+python cad/build_assembly.py
 ```
 
 Alternatively, run this in the FreeCAD Python console with the path to your checkout.
 
 ```python
 import runpy
-runpy.run_path("/path/to/gripper-wbot/tools/build_assembly.py", run_name="__main__")
+runpy.run_path("/path/to/gripper-wbot/cad/build_assembly.py", run_name="__main__")
 ```
 
 ## Design credits

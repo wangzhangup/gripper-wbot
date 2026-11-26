@@ -76,14 +76,14 @@
 用包含 FreeCAD、Part 和 Import 模块的 Python 运行以下命令，即可从本地单件重新生成两种总装文件。运行前请保存总装中的手工修改，脚本会覆盖这两个文件。已使用 FreeCAD 1.1.3 验证。
 
 ```sh
-python tools/build_assembly.py
+python cad/build_assembly.py
 ```
 
 也可从 FreeCAD 的 Python 控制台运行，将下方路径替换为项目实际位置。
 
 ```python
 import runpy
-runpy.run_path("/path/to/gripper-wbot/tools/build_assembly.py", run_name="__main__")
+runpy.run_path("/path/to/gripper-wbot/cad/build_assembly.py", run_name="__main__")
 ```
 
 ## 设计来源

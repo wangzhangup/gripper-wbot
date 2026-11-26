@@ -9,8 +9,7 @@ import FreeCAD as App
 import Import
 import Part
 
-ROOT = Path(__file__).resolve().parents[1]
-CAD = ROOT / "cad"
+CAD = Path(__file__).resolve().parent
 GROUPS = {
     "Wrist": "Wrist interface and motor",
     "Frame": "Rail frame and pinion",
